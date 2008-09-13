@@ -2,7 +2,7 @@ TEMPLATE = app
 TARGET = test005
 QT += core \
     gui \
-	sql
+    sql
 HEADERS += connection.h \
     Highscore.h \
     Daten.h \
@@ -14,4 +14,4 @@ SOURCES += Highscore.cpp \
     main.cpp \
     test005.cpp
 FORMS += test005.ui
-RESOURCES += 
+RESOURCES += res.qrc

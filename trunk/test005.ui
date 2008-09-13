@@ -1,6 +1,12 @@
 <ui version="4.0" >
  <class>test005Class</class>
  <widget class="QWidget" name="test005Class" >
+  <property name="windowModality" >
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled" >
+   <bool>true</bool>
+  </property>
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -15,8 +21,24 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize" >
+   <size>
+    <width>361</width>
+    <height>511</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>361</width>
+    <height>511</height>
+   </size>
+  </property>
   <property name="windowTitle" >
-   <string>test005</string>
+   <string>KB-TRIS</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="res.qrc" >
+    <normaloff>:/icon/icon.ico</normaloff>:/icon/icon.ico</iconset>
   </property>
   <widget class="QLabel" name="background" >
    <property name="geometry" >
@@ -273,6 +295,12 @@
    <property name="text" >
     <string>Highscores</string>
    </property>
+   <property name="checkable" >
+    <bool>false</bool>
+   </property>
+   <property name="checked" >
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnCredits" >
    <property name="geometry" >
@@ -300,8 +328,23 @@
     <string>Beenden</string>
    </property>
   </widget>
+  <widget class="QLabel" name="highscore" >
+   <property name="geometry" >
+    <rect>
+     <x>30</x>
+     <y>176</y>
+     <width>300</width>
+     <height>150</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string/>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11" />
- <resources/>
+ <resources>
+  <include location="res.qrc" />
+ </resources>
  <connections/>
 </ui>

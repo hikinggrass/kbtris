@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'test005.ui'
 **
-** Created: Sat 6. Sep 14:21:50 2008
+** Created: Sat 13. Sep 22:09:43 2008
 **      by: Qt User Interface Compiler version 4.4.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -32,17 +32,25 @@ public:
     QPushButton *btnHighscores;
     QPushButton *btnCredits;
     QPushButton *btnBeenden;
+    QLabel *highscore;
 
     void setupUi(QWidget *test005Class)
     {
     if (test005Class->objectName().isEmpty())
         test005Class->setObjectName(QString::fromUtf8("test005Class"));
+    test005Class->setWindowModality(Qt::NonModal);
+    test005Class->setEnabled(true);
     test005Class->resize(361, 511);
     QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     sizePolicy.setHorizontalStretch(0);
     sizePolicy.setVerticalStretch(0);
     sizePolicy.setHeightForWidth(test005Class->sizePolicy().hasHeightForWidth());
     test005Class->setSizePolicy(sizePolicy);
+    test005Class->setMinimumSize(QSize(361, 511));
+    test005Class->setMaximumSize(QSize(361, 511));
+    QIcon icon;
+    icon.addPixmap(QPixmap(QString::fromUtf8(":/icon/icon.ico")), QIcon::Normal, QIcon::Off);
+    test005Class->setWindowIcon(icon);
     background = new QLabel(test005Class);
     background->setObjectName(QString::fromUtf8("background"));
     background->setGeometry(QRect(0, 0, 361, 511));
@@ -97,12 +105,17 @@ public:
     btnHighscores = new QPushButton(test005Class);
     btnHighscores->setObjectName(QString::fromUtf8("btnHighscores"));
     btnHighscores->setGeometry(QRect(130, 160, 75, 23));
+    btnHighscores->setCheckable(false);
+    btnHighscores->setChecked(false);
     btnCredits = new QPushButton(test005Class);
     btnCredits->setObjectName(QString::fromUtf8("btnCredits"));
     btnCredits->setGeometry(QRect(130, 190, 75, 23));
     btnBeenden = new QPushButton(test005Class);
     btnBeenden->setObjectName(QString::fromUtf8("btnBeenden"));
     btnBeenden->setGeometry(QRect(130, 220, 75, 23));
+    highscore = new QLabel(test005Class);
+    highscore->setObjectName(QString::fromUtf8("highscore"));
+    highscore->setGeometry(QRect(30, 176, 300, 150));
 
     retranslateUi(test005Class);
 
@@ -111,7 +124,7 @@ public:
 
     void retranslateUi(QWidget *test005Class)
     {
-    test005Class->setWindowTitle(QApplication::translate("test005Class", "test005", 0, QApplication::UnicodeUTF8));
+    test005Class->setWindowTitle(QApplication::translate("test005Class", "KB-TRIS", 0, QApplication::UnicodeUTF8));
     background->setText(QString());
     lblLevel->setText(QApplication::translate("test005Class", "10", 0, QApplication::UnicodeUTF8));
     lblReihen->setText(QApplication::translate("test005Class", "10", 0, QApplication::UnicodeUTF8));
@@ -121,6 +134,7 @@ public:
     btnHighscores->setText(QApplication::translate("test005Class", "Highscores", 0, QApplication::UnicodeUTF8));
     btnCredits->setText(QApplication::translate("test005Class", "Credits", 0, QApplication::UnicodeUTF8));
     btnBeenden->setText(QApplication::translate("test005Class", "Beenden", 0, QApplication::UnicodeUTF8));
+    highscore->setText(QString());
     Q_UNUSED(test005Class);
     } // retranslateUi
 
