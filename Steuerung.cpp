@@ -19,8 +19,8 @@ Steuerung::Steuerung(TdieGUI *parent){
 }
 
 void Steuerung::ladeHighscores(){
-  dieHighscores->ladeHighscores();
-  dieHighscores->ueberpruefeHighscores();
+  //dieHighscores->ladeHighscores();
+  //dieHighscores->ueberpruefeHighscores();
 }
 
 QString Steuerung::gibName(int pPlatz){
@@ -32,8 +32,9 @@ int Steuerung::gibScore(int pPlatz){
 }
 
 void Steuerung::speichereHighscore(QString pName){
-  ladeHighscores();
+  //ladeHighscores();
   dieHighscores->sendeScore(dieDaten->gibPunktestand(),pName);
+  //dieHighscores->test();
 }
 
 int Steuerung::gibSpielstatus(){
@@ -48,6 +49,7 @@ int Steuerung::gibSpielstatus(){
 
 void Steuerung::spielBeenden() {
   gameOver=true;
+  pause=true;
   int punkte=dieDaten->gibPunktestand();
   bool highscore=false;
   ladeHighscores();
@@ -122,21 +124,23 @@ void Steuerung::tasteGedruecktPause() {
 }
 
 void Steuerung::tasteGedruecktUnten() {
-   fallen();
+   if(!gameOver)
+	   fallen();
 }
 
 void Steuerung::fallen()
 {
-  if(!pause && !gameOver){
-    bool kollision = false;
+  if(!pause &&! gameOver){
+	bool kollision = false;
     for(int i=0;i<4;i++){
       if(testePosition(xPositionBrick[i],yPositionBrick[i]+1)){
         kollision = true;
-        if(xPositionBrick[i]>-1 && xPositionBrick[i]< 10 && yPositionBrick[i] >-1 && yPositionBrick[i] < 20){
-             schreibeDaten();
-        }
         if(xPositionBrick[i] < -1 && xPositionBrick[i]< 10 && yPositionBrick[i] >= 20){
           spielBeenden();
+        }
+        if(xPositionBrick[i]>-1 && xPositionBrick[i]< 10 && yPositionBrick[i] >-1 && yPositionBrick[i] < 20){
+          if(!gameOver)
+            schreibeDaten();
         }
         initialisiereStein(naechsterStein);
       }
@@ -664,13 +668,19 @@ void Steuerung::initialisiereStein(int typ) {
 }
 
 void Steuerung::schreibeDaten() {
-  dieDaten->setzePunktestand(dieDaten->gibPunktestand()+1);
-  dieGUI->zeigePunkte(dieDaten->gibPunktestand());
+  bool error=false;
   for(int u=0;u<4;u++){
     if(yPositionBrick[u]<0){
-      spielBeenden();
+    	error=true;
+    }else{
+      dieDaten->setzeDaten(xPositionBrick[u],yPositionBrick[u],typStein);
     }
-    dieDaten->setzeDaten(xPositionBrick[u],yPositionBrick[u],typStein);
+  }
+
+  dieDaten->setzePunktestand(dieDaten->gibPunktestand()+1);
+  dieGUI->zeigePunkte(dieDaten->gibPunktestand());
+  if(error){
+	  spielBeenden();
   }
 }
 

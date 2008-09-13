@@ -45,9 +45,9 @@
 #define CONNECTION_H
 
 #include <QMessageBox>
-#include <QtSql/QSqlDatabase>
-#include <QtSql/QSqlError>
-#include <QtSql/QSqlQuery>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
 
 /*
     This file defines a helper function to open a connection to an
@@ -61,38 +61,21 @@
 static bool createConnection()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    //db.setDatabaseName(":memory:");
-    db.setDatabaseName("system/highscores");
+    db.setDatabaseName("lol.db");
     if (!db.open()) {
-        /*QMessageBox::critical(0, qApp->tr("Cannot open database"),
-            qApp->tr("Unable to establish a database connection.\n"
+        QMessageBox::critical(0, ("Cannot open database"),
+            ("Unable to establish a database connection.\n"
                      "This example needs SQLite support. Please read "
                      "the Qt SQL driver documentation for information how "
                      "to build it.\n\n"
-                     "Click Cancel to exit."), QMessageBox::Cancel);*/
+                     "Click Cancel to exit."), QMessageBox::Cancel);
         return false;
     }
 
-    QSqlQuery query;
-
-    query.exec("CREATE TABLE scores (id int primary key, "
-               "name varchar(20), score int, checksum varchar(32))");
-
-
-    QString pName = "lol";
-    int pScore = 100;
-    QString checksum = "argh";
-
-    query.prepare("INSERT INTO scores (id, name, score, checksum) "
-                       "VALUES (?, ?, ?, ?)");
-    query.addBindValue(NULL);
-    query.addBindValue(pName);
-    query.addBindValue(pScore);
-    query.addBindValue(checksum);
-    query.exec()
-
-    //query.exec("insert into scores values(NULL, '"+pName+"', "+pScore+", '"+checksumme+"')");
-    /*query.exec("insert into scores values(NULL, 'lol', 100, 'lol')");
+    /*QSqlQuery query;
+    query.exec("create table person (id int primary key, "
+               "firstname varchar(20), lastname varchar(20))");
+    query.exec("insert into person values(101, 'Danny', 'Young')");
     query.exec("insert into person values(102, 'Christine', 'Holand')");
     query.exec("insert into person values(103, 'Lars', 'Gordon')");
     query.exec("insert into person values(104, 'Roberto', 'Robitaille')");
@@ -146,7 +129,7 @@ static bool createConnection()
     query.exec("insert into images values(4, 'images/munich.png')");
     query.exec("insert into images values(5, 'images/beijing.png')");
 
-	*/
+*/
 
     return true;
 }

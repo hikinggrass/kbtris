@@ -8,6 +8,8 @@
 #include "connection.h"
 #include <QVariant>
 
+#include <QtSql>
+
 class Highscore {
 protected:
 	QStringList scores;
@@ -17,6 +19,8 @@ protected:
 	QString leseName(int pPlatz);
 	int leseScore(int pPlatz);
     QString leseChecksumme(int pPlatz);
+    void initializeModel(QSqlRelationalTableModel *model);
+    void createRelationalTables();
 public:
         Highscore();
 	bool sendeScore(int pScore, QString pName);
@@ -24,6 +28,7 @@ public:
 	int gibScore(int pPlatz);
         void ueberpruefeHighscores();
         void ladeHighscores();
+        void test(void);
 
 };
 

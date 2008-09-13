@@ -20,6 +20,9 @@ TdieGUI::TdieGUI(QWidget *parent)
 	ui.background->setPixmap(background);
 	QPixmap menubg("system/gfx/menu_bg_all.jpg");
 	ui.menubg->setPixmap(menubg);
+	QPixmap highscore("system/gfx/highscore.jpg");
+	ui.highscore->setPixmap(highscore);
+	ui.highscore->setHidden(true);
 	QString bildpfad[7];
 	bildpfad[0] = "system/gfx/brick_25x25_hellblau.jpg";
 	bildpfad[1] = "system/gfx/brick_25x25_blau.jpg";
@@ -201,21 +204,13 @@ void TdieGUI::loescheSegment(int x, int y, bool vorschau) {
 }
 
 void TdieGUI::gameOver(bool highscore) {
-    //setTimerStatus(false);
-	//timer->stop();
-	if(highscore){
-    	releaseKeyboard();
-
-    	// "enter-bug"
-    	bool ok;
-    	QString text = QInputDialog::getText(this, tr("Highscore!"),
-											tr("Name:"), QLineEdit::Normal,
-											QDir::home().dirName(), &ok);
-    	grabKeyboard();
-    	dieSteuerung->speichereHighscore(text);
-     //if (ok && !text.isEmpty())
-	       //  textLabel->setText(text);
-    }
+    setTimerStatus(false);
+	timer->stop();
+	releaseKeyboard();
+	//hier eigenen dialog implementieren
+    grabKeyboard();
+    QString text="00";
+    dieSteuerung->speichereHighscore(text);
 
 }
 
