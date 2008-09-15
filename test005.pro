@@ -1,8 +1,8 @@
 TEMPLATE = app
 TARGET = test005
 QT += core \
-    gui \
-    sql
+    gui
+QT += sql
 HEADERS += connection.h \
     Highscore.h \
     Daten.h \
