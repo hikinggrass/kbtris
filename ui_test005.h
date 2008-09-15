@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'test005.ui'
 **
-** Created: Mon 15. Sep 18:24:48 2008
+** Created: Mon 15. Sep 18:26:49 2008
 **      by: Qt User Interface Compiler version 4.4.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -19,7 +19,7 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QWidget>
 
-QT_BEGIN_NAMESPACE
+//QT_BEGIN_NAMESPACE
 
 class Ui_test005Class
 {
@@ -162,6 +162,6 @@ namespace Ui {
     class test005Class: public Ui_test005Class {};
 } // namespace Ui
 
-QT_END_NAMESPACE
+//QT_END_NAMESPACE
 
 #endif // UI_TEST005_H
