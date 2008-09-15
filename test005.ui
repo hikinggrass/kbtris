@@ -356,19 +356,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="edtName" >
-   <property name="geometry" >
-    <rect>
-     <x>141</x>
-     <y>262</y>
-     <width>129</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="plainText" >
-    <string/>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btnSaveHighscore" >
    <property name="enabled" >
     <bool>true</bool>
@@ -395,6 +382,16 @@
    </property>
    <property name="flat" >
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="edtName" >
+   <property name="geometry" >
+    <rect>
+     <x>141</x>
+     <y>262</y>
+     <width>129</width>
+     <height>21</height>
+    </rect>
    </property>
   </widget>
  </widget>

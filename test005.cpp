@@ -236,7 +236,7 @@ void TdieGUI::gameOver(bool highscore) {
 
 void TdieGUI::savehighscore(void){
   grabKeyboard();
-  dieSteuerung->speichereHighscore(ui.edtName->toPlainText());
+  dieSteuerung->speichereHighscore(ui.edtName->text());
   ui.highscore->setHidden(true);
   ui.edtName->setHidden(true);
   ui.btnSaveHighscore->setHidden(true);

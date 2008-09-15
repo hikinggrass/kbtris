@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'test005.ui'
 **
-** Created: Sat 13. Sep 23:07:50 2008
+** Created: Mon 15. Sep 18:24:48 2008
 **      by: Qt User Interface Compiler version 4.4.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -15,7 +15,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QLabel>
-#include <QtGui/QPlainTextEdit>
+#include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QWidget>
 
@@ -34,8 +34,8 @@ public:
     QPushButton *btnCredits;
     QPushButton *btnBeenden;
     QLabel *highscore;
-    QPlainTextEdit *edtName;
     QPushButton *btnSaveHighscore;
+    QLineEdit *edtName;
 
     void setupUi(QWidget *test005Class)
     {
@@ -123,9 +123,6 @@ public:
     highscore = new QLabel(test005Class);
     highscore->setObjectName(QString::fromUtf8("highscore"));
     highscore->setGeometry(QRect(30, 176, 300, 150));
-    edtName = new QPlainTextEdit(test005Class);
-    edtName->setObjectName(QString::fromUtf8("edtName"));
-    edtName->setGeometry(QRect(141, 262, 129, 21));
     btnSaveHighscore = new QPushButton(test005Class);
     btnSaveHighscore->setObjectName(QString::fromUtf8("btnSaveHighscore"));
     btnSaveHighscore->setEnabled(true);
@@ -133,6 +130,9 @@ public:
     btnSaveHighscore->setIconSize(QSize(230, 34));
     btnSaveHighscore->setAutoDefault(false);
     btnSaveHighscore->setFlat(false);
+    edtName = new QLineEdit(test005Class);
+    edtName->setObjectName(QString::fromUtf8("edtName"));
+    edtName->setGeometry(QRect(141, 262, 129, 21));
 
     retranslateUi(test005Class);
 
@@ -152,7 +152,6 @@ public:
     btnCredits->setText(QApplication::translate("test005Class", "Credits", 0, QApplication::UnicodeUTF8));
     btnBeenden->setText(QApplication::translate("test005Class", "Beenden", 0, QApplication::UnicodeUTF8));
     highscore->setText(QString());
-    edtName->setPlainText(QString());
     btnSaveHighscore->setText(QApplication::translate("test005Class", "Speichern", 0, QApplication::UnicodeUTF8));
     Q_UNUSED(test005Class);
     } // retranslateUi
