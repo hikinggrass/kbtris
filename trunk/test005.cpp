@@ -10,8 +10,10 @@ TdieGUI::TdieGUI(QWidget *parent)
 	ui.setupUi(this);
 	  grabKeyboard();
     QObject::connect(ui.btnSpielstarten, SIGNAL(clicked(bool)), this, SLOT( start() ));
-    QObject::connect(ui.btnHighscores, SIGNAL(clicked(bool)), this, SLOT( test() ));
-
+    QObject::connect(ui.btnHighscores, SIGNAL(clicked(bool)), this, SLOT( showHighscores() ));
+    QObject::connect(ui.btnCredits, SIGNAL(clicked(bool)), this, SLOT( showCredits() ));
+    QObject::connect(ui.btnBeenden, SIGNAL(clicked(bool)), this, SLOT( close() ));
+    QObject::connect(ui.btnSaveHighscore, SIGNAL(clicked(bool)), this, SLOT( savehighscore() ));
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(fallen()));
 
@@ -23,6 +25,8 @@ TdieGUI::TdieGUI(QWidget *parent)
 	QPixmap highscore("system/gfx/highscore.jpg");
 	ui.highscore->setPixmap(highscore);
 	ui.highscore->setHidden(true);
+	ui.edtName->setHidden(true);
+	ui.btnSaveHighscore->setHidden(true);
 	QString bildpfad[7];
 	bildpfad[0] = "system/gfx/brick_25x25_hellblau.jpg";
 	bildpfad[1] = "system/gfx/brick_25x25_blau.jpg";
@@ -112,6 +116,18 @@ void TdieGUI::showgame(void){
 
 }
 
+void TdieGUI::hidemenu(void){
+	ui.btnSpielstarten->setHidden(true);
+	ui.btnBeenden->setHidden(true);
+	ui.btnCredits->setHidden(true);
+	ui.btnHighscores->setHidden(true);
+}
+void TdieGUI::showmenu(void){
+	ui.btnSpielstarten->setHidden(false);
+	ui.btnBeenden->setHidden(false);
+	ui.btnCredits->setHidden(false);
+	ui.btnHighscores->setHidden(false);
+}
 void TdieGUI::showHighscores(void){
 
 }
@@ -208,10 +224,24 @@ void TdieGUI::gameOver(bool highscore) {
 	timer->stop();
 	releaseKeyboard();
 	//hier eigenen dialog implementieren
-    grabKeyboard();
-    QString text="00";
-    dieSteuerung->speichereHighscore(text);
+	for(int x=0; x<10; x++) {
+	    for(int y=0; y<20; y++) {
+		    spielfeld[x][y]->setPixmap(NULL);
+		}
+	}
+	ui.highscore->setHidden(false);
+	ui.edtName->setHidden(false);
+	ui.btnSaveHighscore->setHidden(false);
+}
 
+void TdieGUI::savehighscore(void){
+  grabKeyboard();
+  dieSteuerung->speichereHighscore(ui.edtName->toPlainText());
+  ui.highscore->setHidden(true);
+  ui.edtName->setHidden(true);
+  ui.btnSaveHighscore->setHidden(true);
+  hidegame();
+  showmenu();
 }
 
 void TdieGUI::loescheReihe(int reihe) {
@@ -314,6 +344,6 @@ int TdieGUI::getTimerInterval(void){
   return timerinterval;
 }
 
-void TdieGUI::test(void){
+/*void TdieGUI::test(void){
 	dieSteuerung->test();
-}
+}*/

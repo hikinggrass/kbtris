@@ -8,7 +8,7 @@
 #include "connection.h"
 #include <QVariant>
 
-#include <QtSql>
+#include <QtSql/QtSql>
 
 class Highscore {
 protected:
