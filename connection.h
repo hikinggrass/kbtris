@@ -45,9 +45,9 @@
 #define CONNECTION_H
 
 #include <QMessageBox>
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QSqlQuery>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlError>
+#include <QtSql/QSqlQuery>
 
 /*
     This file defines a helper function to open a connection to an

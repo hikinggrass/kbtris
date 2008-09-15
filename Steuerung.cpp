@@ -145,7 +145,7 @@ void Steuerung::fallen()
         initialisiereStein(naechsterStein);
       }
     }
-    if (kollision == false){
+    if (kollision == false && !gameOver){
       for(int i=0;i<4;i++){
         dieGUI->loescheSegment(xPositionBrick[i],yPositionBrick[i]);
         yPositionBrick[i]=yPositionBrick[i]+1;
@@ -594,6 +594,7 @@ void Steuerung::drehen() {
 }
 
 void Steuerung::initialisiereStein(int typ) {
+  if(!gameOver){
   //Überprüfe auf volle Reihen:
   int count=0;
   while(dieDaten->testeReihen()!=-1){
@@ -664,6 +665,7 @@ void Steuerung::initialisiereStein(int typ) {
   //zeigen wir den neuen Stein an!
   for(int i=0; i<4; i++) {
     dieGUI->setzeSegment(xPositionBrick[i],yPositionBrick[i],typStein);
+  }
   }
 }
 

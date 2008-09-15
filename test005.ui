@@ -271,25 +271,40 @@
    </property>
   </widget>
   <widget class="QPushButton" name="btnSpielstarten" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
    <property name="geometry" >
     <rect>
-     <x>130</x>
-     <y>130</y>
-     <width>75</width>
-     <height>23</height>
+     <x>60</x>
+     <y>150</y>
+     <width>230</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="text" >
     <string>Spiel starten</string>
    </property>
+   <property name="iconSize" >
+    <size>
+     <width>230</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="autoDefault" >
+    <bool>false</bool>
+   </property>
+   <property name="flat" >
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnHighscores" >
    <property name="geometry" >
     <rect>
-     <x>130</x>
-     <y>160</y>
-     <width>75</width>
-     <height>23</height>
+     <x>60</x>
+     <y>200</y>
+     <width>230</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="text" >
@@ -305,10 +320,10 @@
   <widget class="QPushButton" name="btnCredits" >
    <property name="geometry" >
     <rect>
-     <x>130</x>
-     <y>190</y>
-     <width>75</width>
-     <height>23</height>
+     <x>60</x>
+     <y>250</y>
+     <width>230</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="text" >
@@ -318,10 +333,10 @@
   <widget class="QPushButton" name="btnBeenden" >
    <property name="geometry" >
     <rect>
-     <x>130</x>
-     <y>220</y>
-     <width>75</width>
-     <height>23</height>
+     <x>60</x>
+     <y>300</y>
+     <width>230</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="text" >
@@ -339,6 +354,47 @@
    </property>
    <property name="text" >
     <string/>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="edtName" >
+   <property name="geometry" >
+    <rect>
+     <x>141</x>
+     <y>262</y>
+     <width>129</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="plainText" >
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnSaveHighscore" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="geometry" >
+    <rect>
+     <x>215</x>
+     <y>289</y>
+     <width>115</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Speichern</string>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>230</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="autoDefault" >
+    <bool>false</bool>
+   </property>
+   <property name="flat" >
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

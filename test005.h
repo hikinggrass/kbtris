@@ -47,6 +47,8 @@ public:
     //interface funktionen
     void hidegame(void);
     void showgame(void);
+    void hidemenu(void);
+    void showmenu(void);
 
 
 
@@ -72,7 +74,7 @@ private slots:
     void start(void);
     void showHighscores(void);
     void showCredits(void);
-    void test(void);
+    void savehighscore(void);
 
 };
 
